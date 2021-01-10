@@ -12,7 +12,10 @@ function InitializeCalendar() {
                 right: 'month,agendaWeek,agendaDay'
             },
             selectable: true,
-            editable: false
+            editable: false,
+            select: function (event) {
+                onShowModal(event, null);
+            }
 
 
         });
@@ -21,4 +24,9 @@ function InitializeCalendar() {
         alert(e);
     }
 
+}
+
+
+function onShowModal(obj, isEventDetail) {
+    $("#appointmentInput").modal("show");
 }
