@@ -7,7 +7,7 @@
             <form id="account" method="post" asp-action="Login" asp-controller="Account">
                 <h4>Use your registered email id and password to login.</h4>
                 <hr />
-                
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group row">
                     <label class="col-md-2" asp-for="Email"></label>
                     <div class=" col-md-10">
