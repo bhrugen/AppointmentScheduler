@@ -16,8 +16,20 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Select Patient</label>
-                        <select id="patientId" asp-items="@(new SelectList(ViewBag.PatientList,"Id","Name"))" class="form-control"></select>
+                        <select id="patientId" asp-items="@(new SelectList(ViewBag.PatientList," Id","Name"))" class="form-control"></select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="title">Duration</label>
+                        <select id="duration" asp-items="ViewBag.Duration" class="form-control"></select>
+                    </div>
+                    <input type="hidden" id="id" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="onCloseModal();">Close</button> &nbsp;
+                    <button type="button" id="btnSubmit" class="btn btn-success" onclick="onSubmitForm();">Submit</button>
+
+
                 </div>
             </form>
         </div>
