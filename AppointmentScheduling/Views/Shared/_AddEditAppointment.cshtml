@@ -12,13 +12,16 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Descriptions</label>
-                        <textarea type="text" class="form-control" id="title"></textarea>
+                        <textarea type="text" class="form-control" id="description"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="title">Select Patient</label>
                         <select id="patientId" asp-items="@(new SelectList(ViewBag.PatientList,"Id","Name"))" class="form-control"></select>
                     </div>
-
+                    <div class="form-group">
+                        <label for="appointmentDate">Start Date Time</label>
+                        <input class="form-control" id="appointmentDate" />
+                    </div>
                     <div class="form-group">
                         <label for="title">Duration</label>
                         <select id="duration" asp-items="ViewBag.Duration" class="form-control"></select>
