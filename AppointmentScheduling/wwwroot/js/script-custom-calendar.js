@@ -71,6 +71,17 @@ function InitializeCalendar() {
 
 
 function onShowModal(obj, isEventDetail) {
+    if (isEventDetail != null) {
+
+        $("#title").val(obj.title);
+        $("#description").val(obj.description);
+        $("#appointmentDate").val(obj.startDate);
+        $("#duration").val(obj.duration);
+        $("#doctorId").val(obj.doctorId);
+        $("#patientId").val(obj.patientId);
+        $("#id").val(obj.id);
+
+    }
     $("#appointmentInput").modal("show");
 }
 
@@ -86,7 +97,7 @@ function onSubmitForm() {
             Title: $("#title").val(),
             Description: $("#description").val(),
             StartDate: $("#appointmentDate").val(),
-            Duriation: $("#duration").val(),
+            Duration: $("#duration").val(),
             DoctorId: $("#doctorId").val(),
             PatientId: $("#patientId").val(),
         };
