@@ -82,6 +82,10 @@ function onShowModal(obj, isEventDetail) {
         $("#id").val(obj.id);
 
     }
+    else {
+        $("#appointmentDate").val(obj.startStr + " " + new moment().format("hh:mm A"));
+        $("#id").val(0);
+    }
     $("#appointmentInput").modal("show");
 }
 
