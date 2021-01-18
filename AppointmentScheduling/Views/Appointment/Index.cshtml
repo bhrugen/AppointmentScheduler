@@ -1,11 +1,17 @@
-﻿<div class="row">
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<div class="row">
     <div class="container">
         @if (User.IsInRole(AppointmentScheduling.Utility.Helper.Admin))
         {
             <div class="form-group row col-2" id="divDoctorList">
                 <label> Select Doctor</label>
-                @Html.DropDownList("doctorId", new SelectList(ViewBag.DoctorList, "Id", "Name"), new { @class = "form-control select2"
-           , @onchange= "onDoctorChange();"
+                @Html.DropDownList("doctorId", new SelectList(ViewBag.DoctorList, "Id", "Name"), new
+                {
+                    @class = "form-control select2"
+           ,
+                    @onchange = "onDoctorChange();"
            })
             </div>
         }
@@ -14,3 +20,8 @@
 </div>
 
 <partial name="_AddEditAppointment" />
+
+
+<div class="text-right pt-2">
+    <p>@HttpContextAccessor.HttpContext.Session.GetString("ssuserName")'s account is logged in</p>
+</div>
