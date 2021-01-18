@@ -21,23 +21,18 @@ namespace AppointmentScheduling.Utility
             {
                 Resource = Send.Resource,
             }
-               .Property(Send.Messages, new JArray {
+           .Property(Send.FromEmail, "ben.spark90@gmail.com")
+           .Property(Send.FromName, "Appointment Scheduler")
+           .Property(Send.Subject, subject)
+           .Property(Send.HtmlPart, htmlMessage)
+           .Property(Send.Recipients, new JArray {
                 new JObject {
-                 {"From", new JObject {
-                  {"Email", "ben.spark90@gmail.com"},
-                  {"Name", "Appointment Scheduler"}
-                  }},
-                 {"To", new JArray {
-                  new JObject {
-                   {"Email", email},
-                   }
-                  }},
-                 {"Subject", subject},
-
-                 {"HTMLPart", htmlMessage}
+                 {"Email", email}
                  }
-                   });
+               });
             MailjetResponse response = await client.PostAsync(request);
+
+
         }
     }
 }
