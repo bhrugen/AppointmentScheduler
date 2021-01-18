@@ -5,15 +5,19 @@
     <div class="container">
         @if (User.IsInRole(AppointmentScheduling.Utility.Helper.Admin))
         {
-            <div class="form-group row col-2" id="divDoctorList">
+        <div class="row">
+            <div class="form-group  col-4" id="divDoctorList">
                 <label> Select Doctor</label>
                 @Html.DropDownList("doctorId", new SelectList(ViewBag.DoctorList, "Id", "Name"), new
                 {
-                    @class = "form-control select2"
-           ,
+                    @class = "form-control select2",
                     @onchange = "onDoctorChange();"
-           })
+                })
             </div>
+            <div class="col-3 offset-5">
+                <a asp-controller="Account" asp-action="Register" class="btn-secondary form-control">Admin Registration</a>
+            </div>
+        </div>
         }
         <div id="calendar"></div>
     </div>
