@@ -26,7 +26,7 @@ function InitializeCalendar() {
                 select: function (event) {
                     onShowModal(event, null);
                 },
-                eventDisplay:'block',
+                eventDisplay: 'block',
                 events: function (fetchInfo, successCallback, failureCallback) {
                     $.ajax({
                         url: routeURL + '/api/Appointment/GetCalendarData?doctorId=' + $("#doctorId").val(),
@@ -54,6 +54,9 @@ function InitializeCalendar() {
                             $.notify("Error", "error");
                         }
                     });
+                },
+                eventClick: function (info) {
+                    getEventDetailsByEventId(info.event);
                 }
             });
             calendar.render();
@@ -129,4 +132,22 @@ function checkValidation() {
 
     return isValid;
 
+}
+
+function getEventDetailsByEventId(info) {
+    $.ajax({
+        url: routeURL + '/api/Appointment/GetCalendarDataById/' + info.id,
+        type: 'GET',
+        dataType: 'JSON',
+        success: function (response) {
+
+            if (response.status === 1 && response.dataenum !== undefined) {
+                onShowModal(response.dataenum, true);
+            }
+            successCallback(events);
+        },
+        error: function (xhr) {
+            $.notify("Error", "error");
+        }
+    });
 }
