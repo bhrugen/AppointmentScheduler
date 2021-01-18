@@ -84,6 +84,8 @@ function onShowModal(obj, isEventDetail) {
         $("#lblDoctorName").html(obj.doctorName);
         if (obj.isDoctorApproved) {
             $("#lblStatus").html('Approved');
+            $("#btnConfirm").addClass("d-none");
+            $("#btnSubmit").addClass("d-none");
         }
         else {
             $("#lblStatus").html('Pending');
